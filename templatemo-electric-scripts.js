@@ -133,6 +133,30 @@ document.addEventListener('DOMContentLoaded', () => {
             else if(c>='A'&&c<='Z') uppercase++;
             else if(c>='0'&&c<='9') digit++;
             else special++;
+            // -------------------- Final Strength Score -------------------- //
+let strengthScore = (
+    entropy_score*25 +
+    length_score*20 +
+    category_score*20 +
+    (1-collision_prob)*15 +
+    chromatic_score*10 +
+    edge_score*10
+);
+strengthScore = Math.min(100, Math.max(0, Math.round(strengthScore)));
+
+const bar = document.getElementById("strengthBar");
+const text = document.getElementById("strengthText");
+bar.style.width = strengthScore + "%";
+
+if(strengthScore < 40) bar.style.background = "#FF3B3B";
+else if(strengthScore < 70) bar.style.background = "#FFD93B";
+else bar.style.background = "#3BFF5B";
+
+let qualitative = "Weak";
+if(strengthScore >= 40 && strengthScore < 70) qualitative = "Medium";
+else if(strengthScore >= 70) qualitative = "Strong";
+
+text.textContent = `Password Strength: ${strengthScore}/100 (${qualitative})`;
         });
 
         const categories_present = [lowercase>0, uppercase>0, digit>0, special>0].filter(Boolean).length;
@@ -366,3 +390,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
