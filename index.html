@@ -145,6 +145,12 @@
     <!-- Password Input & Button -->
     <input type="text" id="passwordInput" placeholder="Enter your password (max 16 chars)">
     <button class="cta-button cta-primary" id="analyzeBtn">Analyze</button>
+   <div id="strengthContainer" style="margin-top:15px;text-align:center;">
+    <div style="width:80%;margin:0 auto;height:25px;background:#222;border-radius:12px;overflow:hidden;box-shadow:0 0 5px rgba(0,178,255,0.5);">
+        <div id="strengthBar" style="height:100%;width:0%;background:#FF5E00;transition:width 1s ease;"></div>
+    </div>
+    <p id="strengthText" style="margin-top:8px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:16px;"></p>
+   </div>
 
     <!-- Metrics Output -->
     <div id="metricsOutput" class="metrics-output"></div>
@@ -297,3 +303,4 @@ document.getElementById('analyzeBtn').addEventListener('click', () => {
 <script src="templatemo-electric-scripts.js"></script>
 </body>
 </html>
+
