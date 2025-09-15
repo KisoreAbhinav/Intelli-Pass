@@ -410,16 +410,23 @@
                 transform: translateY(0);
             }
         }
+.glitch-text {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
 
-        .glitch-text {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.6rem, 10vw, 3.8rem);
-            font-weight: 900;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
-        }
+    /* Responsive font scaling that never overflows */
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    line-height: 1.1;
+    white-space: nowrap;     /* keep on one line */
+    overflow: hidden;        /* prevent spill */
+    text-align: center;      /* center horizontally */
+    max-width: 100%;         /* bound to screen */
+}
+
 
         .glitch-text::before,
         .glitch-text::after {
